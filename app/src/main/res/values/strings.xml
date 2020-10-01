@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ConstraintLayoutPerformance</string>
+    <string name="some_text">125 $</string>
+    <string name="some_pikachu_text">Pika-pika</string>
+    <string name="some_long_text">Pikachu[c] are a species of Pokémon, fictional creatures that appear in an assortment of video games, animated television shows and movies, trading card games, and comic books licensed by The Pokémon Company, a Japanese corporation. They are yellow rodent-like creatures (large-eared pika) with powerful electrical abilities. In most vocalized appearances, including the anime and certain video games, they are primarily voiced by Ikue Ōtani. A Pikachu also appears as part of the main cast in the live-action animated film Pokémon Detective Pikachu, played in CGI and voiced by Ryan Reynolds.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
