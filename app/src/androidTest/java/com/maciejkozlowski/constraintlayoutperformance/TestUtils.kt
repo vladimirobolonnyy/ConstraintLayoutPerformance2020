@@ -14,16 +14,12 @@ fun log(msg: String) {
     println(msg)
 }
 
-fun measureTime(@LayoutRes layoutRes: Int): Long {
-    return measureTimeInNano(layoutRes) / REPEATS
-}
-
-val layoutInflater: LayoutInflater by lazy {
-    LayoutInflater.from(InstrumentationRegistry.getInstrumentation().targetContext)
-}
-
-private fun measureTimeInNano(@LayoutRes layoutRes: Int) = measureNanoTime {
-    for (i in 0 until REPEATS) {
+fun measureTimeInNano(
+    @LayoutRes layoutRes: Int,
+    layoutInflater: LayoutInflater,
+    repeat: Int
+) = measureNanoTime {
+    for (i in 0 until repeat) {
         layoutInflater.inflate(layoutRes, null).apply {
             layoutParams = ViewGroup.LayoutParams(0, 0)
             measure(
@@ -36,8 +32,6 @@ private fun measureTimeInNano(@LayoutRes layoutRes: Int) = measureNanoTime {
 }
 
 const val TAG = "###test"
-
-const val REPEATS = 1_000
 
 const val LINEAR = "linear:\t\t"
 const val FRAME = "frame:\t\t\t"

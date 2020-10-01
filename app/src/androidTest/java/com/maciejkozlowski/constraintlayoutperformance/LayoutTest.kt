@@ -1,11 +1,26 @@
 package com.maciejkozlowski.constraintlayoutperformance
 
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import kotlin.system.measureNanoTime
 
 @RunWith(AndroidJUnit4::class)
 class LayoutTest {
+
+    lateinit var layoutInflater: LayoutInflater
+
+    @Before
+    fun setup() {
+        layoutInflater =
+            LayoutInflater.from(InstrumentationRegistry.getInstrumentation().targetContext)
+    }
 
     @Test
     fun test_item1() {
@@ -36,4 +51,9 @@ class LayoutTest {
         log("$CONSTRAINT ${measureTime(R.layout.item4_constraint)}")
         log("$LINEAR ${measureTime(R.layout.item4_linear)}")
     }
+
+    private fun measureTime(@LayoutRes layoutRes: Int, repeat: Int = 10000): Long {
+        return measureTimeInNano(layoutRes, layoutInflater, repeat) / repeat
+    }
 }
+
