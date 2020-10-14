@@ -59,6 +59,16 @@ class LayoutTest2020 {
         log("item 7 $CONSTRAINT ${measureTime(R.layout.item7_constraint)}")
     }
 
+    @Test
+    fun test_item8_linear() {
+        log("item 8 $LINEAR ${measureTime(R.layout.item8_linear)}")
+    }
+
+    @Test
+    fun test_item8_constraint() {
+        log("item 8 $CONSTRAINT ${measureTime(R.layout.item8_constraint)}")
+    }
+
     private fun measureTime(@LayoutRes layoutRes: Int, repeat: Int = 10000): Long {
         return measureTimeInNano(layoutRes, layoutInflater, repeat) / repeat
     }
